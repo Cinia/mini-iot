@@ -39,9 +39,9 @@ try:
     client.publish(topic_root + "pressure", pressure)
 
     orientation = hat.get_orientation_degrees()
-    client.publish(topic_root + "/orientation/pitch", orientation['pitch'])
-    client.publish(topic_root + "/orientation/roll", orientation['roll'])
-    client.publish(topic_root + "/orientation/yaw", orientation['yaw'])
+    client.publish(topic_root + "orientation/pitch", orientation['pitch'])
+    client.publish(topic_root + "orientation/roll", orientation['roll'])
+    client.publish(topic_root + "orientation/yaw", orientation['yaw'])
 
     time.sleep(.200)
 except KeyboardInterrupt:
