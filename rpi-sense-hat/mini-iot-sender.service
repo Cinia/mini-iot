@@ -1,0 +1,14 @@
+[Unit]
+Description=Mini-IOT service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u mini-iot-sender.py
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
