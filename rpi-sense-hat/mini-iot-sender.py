@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from paho.mqtt.client import Client
 from sense_hat import SenseHat
 import logging
@@ -43,6 +45,9 @@ try:
     client.publish(topic_root + "orientation/roll", orientation['roll'])
     client.publish(topic_root + "orientation/yaw", orientation['yaw'])
 
+    compass = hat.get_compass()
+    client.publish(topic_root + "compass", compass)
+    
     time.sleep(.200)
 except KeyboardInterrupt:
     pass

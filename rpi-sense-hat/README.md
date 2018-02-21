@@ -6,7 +6,7 @@ Set values to ```mini-iot-sender-config.ini``` and copy file next to python-scri
 
 ## To run on boot
 
-Copy ```mini-iot-sender.service``` to ```/lib/systemd/system/mini-iot-sender.service```
+Copy ```mini-iot-sender.service``` to ```/etc/systemd/system/mini-iot-sender.service```
 
 Start service with
 
