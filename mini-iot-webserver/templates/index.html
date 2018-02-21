@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Mini-IOT</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+    </head>
+    <body>
+        <h1>Some datah from influx here</h1>
+        <div style="width: 1200px; height: 400px;"> 
+            <canvas id="canvas"></canvas>
+        </div>
+        <script type="text/javascript">
+            update_chart();
+            setInterval(update_chart, 3000);
+        </script>
+
+    </body>
+</html>
