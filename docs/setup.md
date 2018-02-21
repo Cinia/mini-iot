@@ -10,7 +10,7 @@
 
 ## Start MQTT -> Influx router
 
-`triton-docker run -d -e BROKER=tcp://BROKER_IP:1883 -e DB=http://INFLUX_IP:8086 reap/mqtt-influxdb-bridge`
+`triton-docker run -d --name=mqtt-influxdb-bridge -e BROKER=tcp://BROKER_IP:1883 -e DB=http://INFLUX_IP:8086 reap/mqtt-influxdb-bridge`
 
 ## Start Grafana
 
