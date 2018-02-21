@@ -2,16 +2,16 @@
 
 ## Start MQTT
 
-triton-docker run -d -p 1883 -p 9001 --name iot-mqtt eclipse-mosquitto
-
-## Get public IP
-
-triton instance get -j iot-mqtt | json ips[1]
+`triton-docker run -d -p 1883 -p 9001 --name iot-mqtt eclipse-mosquitto`
 
 ## Start InfluxDB
 
-triton-docker run -d -p 8086 --name iot-influxdb influxdb
+`triton-docker run -d -p 8086 --name iot-influxdb influxdb`
 
-## Get public IP
+## Start MQTT -> Influx router
 
-triton instance get -j iot-influxdb | json ips[1]
+`triton-docker run -d -e BROKER=tcp://BROKER_IP:1883 -e DB=http://INFLUX_IP:8086 reap/mqtt-influxdb-bridge`
+
+## Start Grafana
+
+`triton-docker run -d --name=grafana -p 3000:3000 grafana/grafana`
