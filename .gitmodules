@@ -1,0 +1,3 @@
+[submodule "MQTT-InfluxDB-bridge"]
+	path = MQTT-InfluxDB-bridge
+	url = https://github.com/reap/MQTT-InfluxDB-bridge
