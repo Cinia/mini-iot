@@ -25,3 +25,9 @@ services:
     - "3000:3000"
     links:
     - influxdb
+  mock-value-sender:
+    image: cinia/mini-iot-mock-value-sender
+    environment:
+    - BROKER=tcp://mqtt-broker:1883
+    links:
+    - mqtt-broker
