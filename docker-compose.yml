@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto
+    ports:
+    - "1883:1883"
+    - "9001:9001"
+  influxdb:
+    image: influxdb
+    ports:
+    - "8086:8086"
+    environment:
+    - INFLUXDB_DB="mini-iot"
+  mqtt-influx-bridge:
+    image: reap/mqtt-influxdb-bridge
+    environment:
+    - BROKER=tcp://mqtt-broker:1883
+    - DB=http://influxdb:8086
+    links:
+    - mqtt-broker
+    - influxdb
+  grafana:
+    image: grafana/grafana
+    ports:
+    - "3000:3000"
+    links:
+    - influxdb
